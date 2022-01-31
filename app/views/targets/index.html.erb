@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Targets</h1>
+
+<div id="targets">
+  <% @targets.each do |target| %>
+    <%= render target %>
+    <p>
+      <%= link_to "Show this target", target %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New target", new_target_path %>

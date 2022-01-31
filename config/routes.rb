@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
-  get 'users/get_users'
-  get 'teams/get_teams'
-  get 'targets/get_targets'
-  get 'employees/get_employees'
-  get 'divisions/get_divisions'
+  resources :divisions
+  resources :teams
+  resources :employees
+  resources :targets
+  resources :users
+  get 'users/index'
+  get 'teams/index'
+  get 'targets/index'
+  get 'employees/index'
+  get 'divisions/index'
+  get 'home/index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "home#index"
 end
