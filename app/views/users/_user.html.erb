@@ -1,17 +1,30 @@
-<div id="<%= dom_id user %>">
-  <p>
-    <strong>Name:</strong>
-    <%= user.name %>
-  </p>
+<tr id="<%= dom_id user %>">
+  <td>
+    <%= user.id %>
+  </td>
 
-  <p>
-    <strong>Email:</strong>
+  <td>
     <%= user.email %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Password:</strong>
-    <%= user.password %>
-  </p>
+  <td>
+    <%= user.name %>
+  </td>
 
-</div>
+  <td>
+    <%= "Hidden" %>
+  </td>
+
+  <td>
+    <%= user.created_at %>
+  </td>
+
+  <td>
+    <%= user.updated_at %>
+  </td>
+
+  <td>
+  <%= button_to "Edit", edit_user_path(user), :method => "get" %> <br>
+  <%= button_to "Delete", user, method: :delete %>
+  </td>
+</tr>

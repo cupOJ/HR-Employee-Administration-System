@@ -4,6 +4,7 @@ class TargetsController < ApplicationController
   # GET /targets or /targets.json
   def index
     @targets = Target.all
+    @target_attributes = Target.attribute_names
   end
 
   # GET /targets/1 or /targets/1.json
@@ -65,6 +66,6 @@ class TargetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def target_params
-      params.require(:target).permit(:title, :description, :start_date, :finish_date, :attr, :team, :status)
+      params.require(:target).permit(:title, :description, :start_date, :finish_date, :team_id, :status)
     end
 end

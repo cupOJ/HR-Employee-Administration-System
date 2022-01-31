@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    @user_attributes = User.attribute_names
   end
 
   # GET /users/1 or /users/1.json

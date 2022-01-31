@@ -4,6 +4,7 @@ class EmployeesController < ApplicationController
   # GET /employees or /employees.json
   def index
     @employees = Employee.all
+    @employee_attributes = Employee.attribute_names
   end
 
   # GET /employees/1 or /employees/1.json
@@ -65,6 +66,6 @@ class EmployeesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def employee_params
-      params.require(:employee).permit(:email, :name, :job, :salary, :employment_status, :team)
+      params.require(:employee).permit(:email, :name, :job, :salary, :employment_status, :team_id)
     end
 end

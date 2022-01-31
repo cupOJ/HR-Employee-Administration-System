@@ -14,12 +14,11 @@ class TargetsTest < ApplicationSystemTestCase
     visit targets_url
     click_on "New target"
 
-    fill_in "Attr", with: @target.attr
     fill_in "Description", with: @target.description
     fill_in "Finish date", with: @target.finish_date
     fill_in "Start date", with: @target.start_date
     fill_in "Status", with: @target.status
-    fill_in "Team", with: @target.team
+    fill_in "Team", with: @target.team_id
     fill_in "Title", with: @target.title
     click_on "Create Target"
 
@@ -31,12 +30,11 @@ class TargetsTest < ApplicationSystemTestCase
     visit target_url(@target)
     click_on "Edit this target", match: :first
 
-    fill_in "Attr", with: @target.attr
     fill_in "Description", with: @target.description
     fill_in "Finish date", with: @target.finish_date
     fill_in "Start date", with: @target.start_date
     fill_in "Status", with: @target.status
-    fill_in "Team", with: @target.team
+    fill_in "Team", with: @target.team_id
     fill_in "Title", with: @target.title
     click_on "Update Target"
 

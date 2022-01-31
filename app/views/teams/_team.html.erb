@@ -1,27 +1,34 @@
-<div id="<%= dom_id team %>">
-  <p>
-    <strong>Id:</strong>
+<tr id="<%= dom_id team %>">
+  <td>
     <%= team.id %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Name:</strong>
+  <td>
     <%= team.name %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Description:</strong>
+  <td>
     <%= team.description %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Team lead:</strong>
+  <td>
     <%= team.team_lead %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Division:</strong>
-    <%= team.division %>
-  </p>
+  <td>
+    <%= team.division_id %>
+  </td>
 
-</div>
+  <td>
+    <%= team.created_at %>
+  </td>
+
+  <td>
+    <%= team.updated_at %>
+  </td>
+
+  <td>
+  <%= button_to "Edit", edit_team_path(team), :method => "get" %> <br>
+  <%= button_to "Delete", team, method: :delete %>
+  </td>
+</tr>

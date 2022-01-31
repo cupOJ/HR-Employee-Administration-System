@@ -4,6 +4,7 @@ class DivisionsController < ApplicationController
   # GET /divisions or /divisions.json
   def index
     @divisions = Division.all
+    @division_attributes = Division.attribute_names
   end
 
   # GET /divisions/1 or /divisions/1.json
@@ -65,6 +66,6 @@ class DivisionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def division_params
-      params.require(:division).permit(:id, :name, :description, :manager)
+      params.require(:division).permit(:name, :description, :manager_id)
     end
 end

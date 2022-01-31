@@ -19,7 +19,7 @@ class EmployeesTest < ApplicationSystemTestCase
     fill_in "Job", with: @employee.job
     fill_in "Name", with: @employee.name
     fill_in "Salary", with: @employee.salary
-    fill_in "Team", with: @employee.team
+    fill_in "Team", with: @employee.team_id
     click_on "Create Employee"
 
     assert_text "Employee was successfully created"
@@ -35,7 +35,7 @@ class EmployeesTest < ApplicationSystemTestCase
     fill_in "Job", with: @employee.job
     fill_in "Name", with: @employee.name
     fill_in "Salary", with: @employee.salary
-    fill_in "Team", with: @employee.team
+    fill_in "Team", with: @employee.team_id
     click_on "Update Employee"
 
     assert_text "Employee was successfully updated"

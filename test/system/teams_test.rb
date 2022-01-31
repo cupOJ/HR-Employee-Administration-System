@@ -15,8 +15,7 @@ class TeamsTest < ApplicationSystemTestCase
     click_on "New team"
 
     fill_in "Description", with: @team.description
-    fill_in "Division", with: @team.division
-    fill_in "Id", with: @team.id
+    fill_in "Division", with: @team.division_id
     fill_in "Name", with: @team.name
     fill_in "Team lead", with: @team.team_lead
     click_on "Create Team"
@@ -30,8 +29,7 @@ class TeamsTest < ApplicationSystemTestCase
     click_on "Edit this team", match: :first
 
     fill_in "Description", with: @team.description
-    fill_in "Division", with: @team.division
-    fill_in "Id", with: @team.id
+    fill_in "Division", with: @team.division_id
     fill_in "Name", with: @team.name
     fill_in "Team lead", with: @team.team_lead
     click_on "Update Team"

@@ -4,6 +4,7 @@ class TeamsController < ApplicationController
   # GET /teams or /teams.json
   def index
     @teams = Team.all
+    @team_attributes = Team.attribute_names
   end
 
   # GET /teams/1 or /teams/1.json
@@ -65,6 +66,6 @@ class TeamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def team_params
-      params.require(:team).permit(:id, :name, :description, :team_lead, :division)
+      params.require(:team).permit(:name, :description, :team_lead, :division_id)
     end
 end

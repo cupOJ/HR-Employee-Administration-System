@@ -17,7 +17,7 @@ class DivisionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create division" do
     assert_difference("Division.count") do
-      post divisions_url, params: { division: { description: @division.description, id: @division.id, manager: @division.manager, name: @division.name } }
+      post divisions_url, params: { division: { description: @division.description, manager_id: @division.manager_id, name: @division.name } }
     end
 
     assert_redirected_to division_url(Division.last)
@@ -34,7 +34,7 @@ class DivisionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update division" do
-    patch division_url(@division), params: { division: { description: @division.description, id: @division.id, manager: @division.manager, name: @division.name } }
+    patch division_url(@division), params: { division: { description: @division.description, manager_id: @division.manager_id, name: @division.name } }
     assert_redirected_to division_url(@division)
   end
 

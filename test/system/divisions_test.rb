@@ -15,8 +15,7 @@ class DivisionsTest < ApplicationSystemTestCase
     click_on "New division"
 
     fill_in "Description", with: @division.description
-    fill_in "Id", with: @division.id
-    fill_in "Manager", with: @division.manager
+    fill_in "Manager", with: @division.manager_id
     fill_in "Name", with: @division.name
     click_on "Create Division"
 
@@ -29,8 +28,7 @@ class DivisionsTest < ApplicationSystemTestCase
     click_on "Edit this division", match: :first
 
     fill_in "Description", with: @division.description
-    fill_in "Id", with: @division.id
-    fill_in "Manager", with: @division.manager
+    fill_in "Manager", with: @division.manager_id
     fill_in "Name", with: @division.name
     click_on "Update Division"
 

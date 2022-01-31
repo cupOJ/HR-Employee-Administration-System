@@ -1,37 +1,42 @@
-<div id="<%= dom_id target %>">
-  <p>
-    <strong>Title:</strong>
+<tr id="<%= dom_id target %>">
+  <td>
+    <%= target.id %>
+  </td>
+
+  <td>
     <%= target.title %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Description:</strong>
+  <td>
     <%= target.description %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Start date:</strong>
+  <td>
     <%= target.start_date %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Finish date:</strong>
+  <td>
     <%= target.finish_date %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Attr:</strong>
-    <%= target.attr %>
-  </p>
+  <td>
+    <%= target.team_id %>
+  </td>
 
-  <p>
-    <strong>Team:</strong>
-    <%= target.team %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
+  <td>
     <%= target.status %>
-  </p>
+  </td>
 
-</div>
+  <td>
+    <%= target.created_at %>
+  </td>
+
+  <td>
+    <%= target.updated_at %>
+  </td>
+
+  <td>
+  <%= button_to "Edit", edit_target_path(target), :method => "get" %> <br>
+  <%= button_to "Delete", target, method: :delete %>
+  </td>
+</tr>

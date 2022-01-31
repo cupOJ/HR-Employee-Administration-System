@@ -17,7 +17,7 @@ class TargetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create target" do
     assert_difference("Target.count") do
-      post targets_url, params: { target: { attr: @target.attr, description: @target.description, finish_date: @target.finish_date, start_date: @target.start_date, status: @target.status, team: @target.team, title: @target.title } }
+      post targets_url, params: { target: { description: @target.description, finish_date: @target.finish_date, start_date: @target.start_date, status: @target.status, team_id: @target.team_id, title: @target.title } }
     end
 
     assert_redirected_to target_url(Target.last)
@@ -34,7 +34,7 @@ class TargetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update target" do
-    patch target_url(@target), params: { target: { attr: @target.attr, description: @target.description, finish_date: @target.finish_date, start_date: @target.start_date, status: @target.status, team: @target.team, title: @target.title } }
+    patch target_url(@target), params: { target: { description: @target.description, finish_date: @target.finish_date, start_date: @target.start_date, status: @target.status, team_id: @target.team_id, title: @target.title } }
     assert_redirected_to target_url(@target)
   end
 
