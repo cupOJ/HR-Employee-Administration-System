@@ -10,4 +10,6 @@ class Employee < ApplicationRecord
         message: "only allows letters"}
     validates :team_id, presence: true, length: {minimum: 1, maximum:2}, format: { with: /\A[0-9]+\z/,
         message: "only allows numbers"}
+    
+    has_one: team
 end
