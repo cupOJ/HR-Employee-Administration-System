@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 2022_02_02_021456) do
+ActiveRecord::Schema.define(version: 2022_02_02_022348) do
 
   create_table "divisions", force: :cascade do |t|
     t.string "name"
