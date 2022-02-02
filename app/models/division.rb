@@ -5,6 +5,6 @@ class Division < ApplicationRecord
     validates :manager_id, presence: true, length: {minimum: 1, maximum:2}, format: { with: /\A[0-9]+\z/,
         message: "only allows numbers"}
     
-    has_one :employee, through: :manager_id
+    belongs_to :manager, class_name: 'Employee', foreign_key: 'manager_id'
     has_many :teams
 end

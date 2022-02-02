@@ -23,9 +23,6 @@
     <%= employee.employment_status %>
   </td>
 
-  <td>
-    <%= employee.team_id %>
-  </td>
 
   <td>
     <%= employee.created_at %>
@@ -35,6 +32,9 @@
     <%= employee.updated_at %>
   </td>
 
+  <td>
+    <%= employee.team.name %>
+  </td>
   <td>
   <%= button_to "Edit", edit_employee_path(employee), :method => "get" %> <br>
   <%= button_to "Delete", employee, method: :delete %>
