@@ -1,0 +1,30 @@
+<tr id="<%= dom_id division %>">
+  <td>
+    <%= division.id %>
+  </td>
+
+  <td>
+    <%= division.name %>
+  </td>
+
+  <td>
+    <%= division.description %>
+  </td>
+
+  <td>
+    <%= division.manager_id %>
+  </td>
+
+  <td>
+    <%= division.created_at %>
+  </td>
+
+  <td>
+    <%= division.updated_at %>
+  </td>
+
+  <td>
+  <%= button_to "Edit", edit_division_path(division), :method => "get" %> <br>
+  <%= button_to "Delete", division, method: :delete %>
+  </td>
+</tr>

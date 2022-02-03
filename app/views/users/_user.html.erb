@@ -1,0 +1,30 @@
+<tr id="<%= dom_id user %>">
+  <td>
+    <%= user.id %>
+  </td>
+
+  <td>
+    <%= user.email %>
+  </td>
+
+  <td>
+    <%= user.name %>
+  </td>
+
+  <td>
+    <%= "Hidden" %>
+  </td>
+
+  <td>
+    <%= user.created_at %>
+  </td>
+
+  <td>
+    <%= user.updated_at %>
+  </td>
+
+  <td>
+  <%= button_to "Edit", edit_user_path(user), :method => "get" %> <br>
+  <%= button_to "Delete", user, method: :delete %>
+  </td>
+</tr>

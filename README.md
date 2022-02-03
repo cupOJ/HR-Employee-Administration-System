@@ -1,24 +1,18 @@
-# README
+# HR Employee Administration System!
+### RoR BootCamp - Week 4
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Tools & Versions
+- Rails 7.0.1
 
-* Ruby version
+- Ruby 3.1.0
 
-* System dependencies
+- SQLite 3.35.0
 
-* Configuration
+## Dependencies
 
-* Database creation
+> This project uses [rails_admin](https://github.com/railsadminteam/rails_admin) to create an admin panel. 
 
-* Database initialization
+## Database Models
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![DB](https://raw.githubusercontent.com/cupOJ/HR-Employee-Administration-System/feature/rails-admin-implemented/1.jpeg)

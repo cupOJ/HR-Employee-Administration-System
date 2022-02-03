@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
+
+<h1>Divisions</h1>
+
+<div id="divisions">
+<table style="width: 90%">
+<tr>
+  <% @division_attributes.each do |attr| %>
+  <th> <%= attr %> </th>
+  <% end %>
+  <th>
+    <%= "Options" %>
+  </th>
+  <% @divisions.each do |division| %>
+    <%= render division %>
+
+  <% end %>
+</tr>
+</table>
+</div>
+
+<br>
+<%= link_to "New division", new_division_path %>

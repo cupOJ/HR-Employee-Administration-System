@@ -1,0 +1,7 @@
+<h1>HR Employee Administration System</h1>
+  <% @model_names.each do |model_name| %>
+      <a href="/<%= model_name.name.downcase.pluralize %>">
+        <%= model_name.name.pluralize %>
+      </a>
+    <br>
+  <% end %>

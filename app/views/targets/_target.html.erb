@@ -1,0 +1,42 @@
+<tr id="<%= dom_id target %>">
+  <td>
+    <%= target.id %>
+  </td>
+
+  <td>
+    <%= target.title %>
+  </td>
+
+  <td>
+    <%= target.description %>
+  </td>
+
+  <td>
+    <%= target.start_date %>
+  </td>
+
+  <td>
+    <%= target.finish_date %>
+  </td>
+
+  <td>
+    <%= target.team_id %>
+  </td>
+
+  <td>
+    <%= target.status %>
+  </td>
+
+  <td>
+    <%= target.created_at %>
+  </td>
+
+  <td>
+    <%= target.updated_at %>
+  </td>
+
+  <td>
+  <%= button_to "Edit", edit_target_path(target), :method => "get" %> <br>
+  <%= button_to "Delete", target, method: :delete %>
+  </td>
+</tr>

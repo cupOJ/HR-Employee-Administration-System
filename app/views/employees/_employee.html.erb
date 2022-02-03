@@ -1,0 +1,42 @@
+<tr id="<%= dom_id employee %>">
+  <td>
+    <%= employee.id %>
+  </td>
+
+  <td>
+    <%= employee.email %>
+  </td>
+
+  <td>
+    <%= employee.name %>
+  </td>
+
+  <td>
+    <%= employee.job %>
+  </td>
+
+  <td>
+    <%= employee.salary %>
+  </td>
+
+  <td>
+    <%= employee.employment_status %>
+  </td>
+
+  <td>
+    <%= employee.team_id %>
+  </td>
+
+  <td>
+    <%= employee.created_at %>
+  </td>
+
+  <td>
+    <%= employee.updated_at %>
+  </td>
+
+  <td>
+  <%= button_to "Edit", edit_employee_path(employee), :method => "get" %> <br>
+  <%= button_to "Delete", employee, method: :delete %>
+  </td>
+</tr>

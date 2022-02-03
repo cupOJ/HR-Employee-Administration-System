@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
+
+<h1>Teams</h1>
+
+<div id="teams">
+<table style="width: 90%">
+<tr>
+  <% @team_attributes.each do |attr| %>
+  <th> <%= attr %> </th>
+  <% end %>
+  <th>
+    <%= "Options" %>
+  </th>
+  <% @teams.each do |team| %>
+    <%= render team %>
+
+  <% end %>
+</tr>
+</table>
+</div>
+
+<br>
+<%= link_to "New team", new_team_path %>
