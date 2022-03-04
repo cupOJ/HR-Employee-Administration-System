@@ -21,9 +21,15 @@
 			</div>
 			<!-- Secondary Navbar items -->
 			<div class="hidden md:flex items-center space-x-3 ">
-				<%# <a href="" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300">Log In</a> %>
-				<a href="/users/new" class="py-2 px-2 text-white bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:bg-gradient-to-br focus:ring-4 focus:ring-green-300 dark:focus:ring-green-800 rounded-lg text-sm text-center mr-2">Sign Up</a>
-			</div>
+					<% if user_signed_in? %>
+					  User: <strong><%= current_user.email %></strong>
+					<%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "py-2 px-2 text-white bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:bg-gradient-to-br focus:ring-4 focus:ring-green-300 dark:focus:ring-green-800 rounded-lg text-sm text-center mr-2" %>
+
+					<% else %>
+					  <%= link_to "Sign up", new_user_registration_path, class: "py-2 px-2 text-white bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:bg-gradient-to-br focus:ring-4 focus:ring-green-300 dark:focus:ring-green-800 rounded-lg text-sm text-center mr-2" %> |
+					  <%= link_to "Login", new_user_session_path, class: "py-2 px-2 text-white bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:bg-gradient-to-br focus:ring-4 focus:ring-green-300 dark:focus:ring-green-800 rounded-lg text-sm text-center mr-2" %>
+					<% end %>
+					</div>
 			<!-- Mobile menu button -->
 			<div class="md:hidden flex items-center">
 				<button class="outline-none mobile-menu-button">

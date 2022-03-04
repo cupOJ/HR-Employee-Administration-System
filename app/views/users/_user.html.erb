@@ -12,11 +12,19 @@
   </td>
 
   <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-    <%= "Hidden" %>
+    <%= user.sign_in_count %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= user.current_sign_in_at %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= user.last_sign_in_at %>
   </td>
 
   <td class="py-4 px-6 text-sm font-medium text-center whitespace-nowrap">
-  <%= button_to "Edit", edit_user_path(user), :method => "get", :class => "pr-4 text-green-900" %>
+  <%= button_to "Edit", edit_user_registration_path(user), :method => "get", :class => "pr-4 text-green-900" %>
   <%= button_to "Delete", user, method: :delete, :class => "pl-1 text-red-900" %>
   </td>
 </tr>
