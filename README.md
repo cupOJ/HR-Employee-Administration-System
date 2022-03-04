@@ -9,10 +9,8 @@
 
 - SQLite 3.35.0
 
-## Dependencies
+- Devise 4.8.1
+ 
+## Video
 
-> This project uses [rails_admin](https://github.com/railsadminteam/rails_admin) to create an admin panel. 
-
-## Database Models
-
-![DB](https://raw.githubusercontent.com/cupOJ/HR-Employee-Administration-System/feature/rails-admin-implemented/1.jpeg)
+https://user-images.githubusercontent.com/35638595/157868633-2a685bc2-d266-4af8-9b1a-17debee50595.mov
