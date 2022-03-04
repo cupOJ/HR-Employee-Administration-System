@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
-    @user_attributes = ["id", "email", "name", "sign-in count", "current sign-in", "last sign-in"]
+    @user_attributes = ["id", "avatar", "email", "name", "sign-in count", "current sign-in", "last sign-in"]
   end
 
   # GET /users/1 or /users/1.json
@@ -66,6 +66,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
     end
 end

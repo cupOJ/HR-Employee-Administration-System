@@ -4,6 +4,10 @@
   </td>
 
   <td class="py-4 px-6 text-sm font-medium text-green-900 whitespace-nowrap">
+    <%= image_tag(user.avatar, :class => "h-10") if user.avatar.representable? %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-green-900 whitespace-nowrap">
     <%= user.email %>
   </td>
 
@@ -11,7 +15,7 @@
     <%= user.name %>
   </td>
 
-  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+  <td class="py-4 px-20 text-sm font-medium text-gray-900 whitespace-nowrap">
     <%= user.sign_in_count %>
   </td>
 
