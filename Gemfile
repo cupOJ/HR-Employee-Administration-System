@@ -5,6 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.0"
 
+gem 'rails-i18n'
+
 gem 'devise'
 
 gem 'rails_admin', ['>= 3.0.0.beta2', '< 4']

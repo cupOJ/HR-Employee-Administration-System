@@ -68,6 +68,10 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
+  config.i18n.available_locales = [:en, :ar]
+  config.i18n.default_locale = :en
+
+
   Rails.application.configure do
     config.action_mailer.perform_deliveries = true
     config.action_mailer.smtp_settings = {
@@ -75,6 +79,6 @@ Rails.application.configure do
       port: 1025
     }
   end
-  
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
