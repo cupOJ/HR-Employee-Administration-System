@@ -4,7 +4,7 @@ class TargetsController < ApplicationController
   # GET /targets or /targets.json
   def index
     @targets = Target.all
-    @target_attributes = Target.attribute_names
+    @target_attributes = Target.attribute_names - ["created_at", "updated_at"]
   end
 
   # GET /targets/1 or /targets/1.json
@@ -26,7 +26,7 @@ class TargetsController < ApplicationController
 
     respond_to do |format|
       if @target.save
-        format.html { redirect_to target_url(@target), notice: "Target was successfully created." }
+        format.html { redirect_to targets_url, notice: "Target was successfully created." }
         format.json { render :show, status: :created, location: @target }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class TargetsController < ApplicationController
   def update
     respond_to do |format|
       if @target.update(target_params)
-        format.html { redirect_to target_url(@target), notice: "Target was successfully updated." }
+        format.html { redirect_to targets_url, notice: "Target was successfully updated." }
         format.json { render :show, status: :ok, location: @target }
       else
         format.html { render :edit, status: :unprocessable_entity }

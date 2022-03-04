@@ -1,30 +1,26 @@
-<tr id="<%= dom_id division %>">
-  <td>
+<tr class="hover:bg-gray-100" id="<%= dom_id division %>">
+  <td class="py-4 px-6 text-sm font-medium text-green-900 whitespace-nowrap">
     <%= division.id %>
   </td>
 
-  <td>
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
     <%= division.name %>
   </td>
 
-  <td>
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
     <%= division.description %>
   </td>
 
-  <td>
-    <%= division.created_at %>
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= division.manager.nil? ? "-" : division.manager.name %>
   </td>
 
-  <td>
-    <%= division.updated_at %>
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= division.teams.length == 0 ? "-" : division.teams.pluck(:name).join(', ') %>
   </td>
 
-  <td>
-    <%= division.manager.name %>
-  </td>
-
-  <td>
-  <%= button_to "Edit", edit_division_path(division), :method => "get" %> <br>
-  <%= button_to "Delete", division, method: :delete %>
+  <td class="py-4 px-6 text-sm font-medium text-center whitespace-nowrap">
+  <%= button_to "Edit", edit_division_path(division), :method => "get", :class => "pr-4 text-green-900" %>
+  <%= button_to "Delete", division, method: :delete, :class => "pl-1 text-red-900" %>
   </td>
 </tr>

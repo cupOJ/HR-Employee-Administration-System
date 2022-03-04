@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HREmployeeAdministrationSystem</title>
+    <title>HR System</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/top_nav" %>
+    <main class="container mt-14">
+	<div class="grid grid-cols-6 gap-0 min-h-[68vh]">
+		<%= render "shared/side_nav" %>
+		<div class="mx-auto col-span-5">
+    	<%= yield %>
+		</div>
+	</div>
+    </main>
+    <%= render "shared/footer" %>
   </body>
 </html>

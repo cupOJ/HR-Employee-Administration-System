@@ -1,30 +1,22 @@
-<tr id="<%= dom_id user %>">
-  <td>
+<tr class="hover:bg-gray-100" id="<%= dom_id user %>">
+  <td class="py-4 px-6 text-sm font-medium text-green-900 whitespace-nowrap">
     <%= user.id %>
   </td>
 
-  <td>
+  <td class="py-4 px-6 text-sm font-medium text-green-900 whitespace-nowrap">
     <%= user.email %>
   </td>
 
-  <td>
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
     <%= user.name %>
   </td>
 
-  <td>
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
     <%= "Hidden" %>
   </td>
 
-  <td>
-    <%= user.created_at %>
-  </td>
-
-  <td>
-    <%= user.updated_at %>
-  </td>
-
-  <td>
-  <%= button_to "Edit", edit_user_path(user), :method => "get" %> <br>
-  <%= button_to "Delete", user, method: :delete %>
+  <td class="py-4 px-6 text-sm font-medium text-center whitespace-nowrap">
+  <%= button_to "Edit", edit_user_path(user), :method => "get", :class => "pr-4 text-green-900" %>
+  <%= button_to "Delete", user, method: :delete, :class => "pl-1 text-red-900" %>
   </td>
 </tr>

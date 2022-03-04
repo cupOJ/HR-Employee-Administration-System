@@ -1,42 +1,34 @@
-<tr id="<%= dom_id employee %>">
-  <td>
+<tr class="hover:bg-gray-100" id="<%= dom_id employee %>">
+  <td class="py-4 px-6 text-sm font-medium text-green-900 whitespace-nowrap">
     <%= employee.id %>
   </td>
 
-  <td>
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
     <%= employee.email %>
   </td>
 
-  <td>
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
     <%= employee.name %>
   </td>
 
-  <td>
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
     <%= employee.job %>
   </td>
 
-  <td>
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
     <%= employee.salary %>
   </td>
 
-  <td>
-    <%= employee.employment_status %>
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= employee.employment_status == 0 ? "Full-time" : "Contracted" %>
   </td>
 
-
-  <td>
-    <%= employee.created_at %>
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= employee.team.nil? ? "-" : employee.team.name %>
   </td>
 
-  <td>
-    <%= employee.updated_at %>
-  </td>
-
-  <td>
-    <%= employee.team.name %>
-  </td>
-  <td>
-  <%= button_to "Edit", edit_employee_path(employee), :method => "get" %> <br>
-  <%= button_to "Delete", employee, method: :delete %>
+  <td class="py-4 px-6 text-sm font-medium text-center whitespace-nowrap">
+  <%= button_to "Edit", edit_employee_path(employee), :method => "get", :class => "pr-4 text-green-900" %>
+  <%= button_to "Delete", employee, method: :delete, :class => "pl-1 text-red-900" %>
   </td>
 </tr>

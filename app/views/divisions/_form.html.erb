@@ -1,3 +1,10 @@
+<div class="w-72 mx-auto">
+<a href="/divisions" type="button" class="text-white bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:bg-gradient-to-br focus:ring-4 focus:ring-green-300 dark:focus:ring-green-800 inline-flex font-medium rounded-lg text-sm px-5 py-1 text-center align-middle mb-3">
+    <svg class="mr-2 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M25.121 47.121L11.128 33.128l-.012-.012L9 31l16.121-16.121a3 3 0 0 1 4.242 4.242l-8.879 8.88h29.517a3 3 0 1 1 0 6H20.486l8.877 8.878a3 3 0 0 1-4.242 4.242z"
+  fill="#ffffff" stroke="#ffffff" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
+  stroke-linecap="round"></path></svg>
+    Back
+</a>
 <%= form_with(model: division) do |form| %>
   <% if division.errors.any? %>
     <div style="color: red">
@@ -11,22 +18,33 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-6">
+    <%= form.label :name, :class => "block mb-2 text-sm font-medium text-black-900" %>
+    <%= form.text_field :name, :class => "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-700 focus:border-green-700 block p-2.5 w-full" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :description, :class => "block mb-2 text-sm font-medium text-black-900" %>
+    <%= form.text_field :description, :class => "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-700 focus:border-green-700 block p-2.5 w-full" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :manager_id, :class => "block mb-2 text-sm font-medium text-black-900" %>
+    <% employees = Employee.where.not(id: Division.pluck(:manager_id)) %>
+    <%= form.collection_select :manager_id, @division.id.nil? ? employees : employees.or(Employee.where(id: @division.manager.id)), :id, :name, {:prompt=>true}, {:class=>"border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-700 focus:border-green-700 block p-2.5 w-full"} %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :teams, :class => "block mb-2 text-sm font-medium text-black-900" %>
+    <%= form.collection_check_boxes :teams, Team.all, :id, :name, {:prompt=>true, include_hidden: false, @division.id.nil? ? nil :  :checked => Team.where(division_id: @division.id).ids} do |b| %>
+    <%= b.check_box :class => "w-4 h-4 text-green-700 bg-gray-100 rounded border-gray-300 focus:ring-green-600" %>
+    <%= b.label :class => "ml-3 text-sm font-medium text-gray-900" %>
+    <br>
+    <% end %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.label :manager_id, style: "display: block" %>
-    <%= form.text_field :manager_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit :class => "text-white bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:bg-gradient-to-br focus:ring-4 focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" %>
   </div>
 <% end %>
+</div>

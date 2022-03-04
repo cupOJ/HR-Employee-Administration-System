@@ -4,7 +4,7 @@ class TeamsController < ApplicationController
   # GET /teams or /teams.json
   def index
     @teams = Team.all
-    @team_attributes = Team.attribute_names
+    @team_attributes = Team.attribute_names - ["created_at", "updated_at"]
   end
 
   # GET /teams/1 or /teams/1.json
@@ -22,11 +22,14 @@ class TeamsController < ApplicationController
 
   # POST /teams or /teams.json
   def create
-    @team = Team.new(team_params)
+    @team = Team.new(team_params.except(:employees))
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to team_url(@team), notice: "Team was successfully created." }
+        for employee in team_params[:employees]
+          Employee.find(employee).update(team_id: @team.id)
+        end
+        format.html { redirect_to teams_url, notice: "Team was successfully created." }
         format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,8 +41,28 @@ class TeamsController < ApplicationController
   # PATCH/PUT /teams/1 or /teams/1.json
   def update
     respond_to do |format|
-      if @team.update(team_params)
-        format.html { redirect_to team_url(@team), notice: "Team was successfully updated." }
+      if @team.update(team_params.except(:employees))
+
+        current_employees = Employee.where(team_id: @team.id).ids
+        checked_employees = team_params[:employees].map(&:to_i)
+        new_employees = checked_employees - current_employees
+        removed_employees = current_employees - checked_employees
+
+        if new_employees.size > 0
+          # update new employees
+          for employee in team_params[:employees]
+            Employee.find(employee).update(team_id: @team.id)
+          end
+        end
+
+        if removed_employees.size > 0
+          # update removed employees to nil
+          for employee in removed_employees
+            Employee.find(employee).update(team_id: nil)
+          end
+        end
+
+        format.html { redirect_to teams_url, notice: "Team was successfully updated." }
         format.json { render :show, status: :ok, location: @team }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,6 +89,6 @@ class TeamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def team_params
-      params.require(:team).permit(:name, :description, :team_lead_id, :division_id)
+      params.require(:team).permit(:name, :description, :team_lead_id, :division_id, employees: [])
     end
 end
