@@ -1,0 +1,29 @@
+<div class="col-span-1 ml-3">
+<aside class="w-36" aria-label="Sidebar">
+<div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded-lg border-2">
+<ul class="space-y-2">
+<li>
+<%= link_to "Divisions", divisions_path, class: "#{is_active('divisions')} flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-100" %>
+
+</li>
+<li>
+<%= link_to "Employees", employees_path, class: "#{is_active('employees')} flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-100" %>
+
+</li>
+<li>
+<%= link_to "Teams", teams_path, class: "#{is_active('teams')} flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-100" %>
+
+</li>
+<li>
+<%= link_to "Targets", targets_path, class: "#{is_active('targets')} flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-100" %>
+
+</li>
+<li>
+<%= link_to "Users", users_path, class: "#{is_active('users')} flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-100" %>
+
+</li>
+
+</ul>
+</div>
+</aside>
+</div>
