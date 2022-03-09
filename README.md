@@ -9,10 +9,6 @@
 
 - SQLite 3.35.0
 
-## Dependencies
+- Bootstrap 5.32
 
-> This project uses [rails_admin](https://github.com/railsadminteam/rails_admin) to create an admin panel. 
-
-## Database Models
-
-![DB](https://raw.githubusercontent.com/cupOJ/HR-Employee-Administration-System/feature/rails-admin-implemented/1.jpeg)
+## Video
