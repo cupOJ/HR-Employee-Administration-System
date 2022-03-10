@@ -1,0 +1,34 @@
+<tr class="hover:bg-gray-100" id="<%= dom_id target %>">
+  <td class="py-4 px-6 text-sm font-medium text-green-900 whitespace-nowrap">
+    <%= target.id %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= target.title %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= target.description %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= target.start_date %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= target.finish_date %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= target.status == 0 ? "In Progress" : "Completed" %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= target.team.nil? ? "-" : target.team.name %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-center whitespace-nowrap">
+  <%= button_to "Edit", edit_target_path(target), :method => "get", :class => "bg-green-600 rounded-sm text-white text-sm my-1" %>
+  <%= button_to "Delete", target, method: :delete, :class => "bg-red-800 rounded-sm text-white text-sm my-1" %>
+  </td>
+</tr>

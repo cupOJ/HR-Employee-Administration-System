@@ -1,0 +1,55 @@
+<div class="w-72 mx-auto">
+<a href="/employees" type="button" class="text-white bg-green-500 inline-flex font-medium rounded-lg text-sm px-5 py-1 text-center align-middle mb-3">
+    <svg class="mr-2 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M25.121 47.121L11.128 33.128l-.012-.012L9 31l16.121-16.121a3 3 0 0 1 4.242 4.242l-8.879 8.88h29.517a3 3 0 1 1 0 6H20.486l8.877 8.878a3 3 0 0 1-4.242 4.242z"
+  fill="#ffffff" stroke="#ffffff" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
+  stroke-linecap="round"></path></svg>
+    Back
+</a>
+<%= form_with(model: employee) do |form| %>
+  <% if employee.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+        <% employee.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-6">
+    <%= form.label :email, :class => "block mb-2 text-sm font-medium text-black-900" %>
+    <%= form.text_field :email, :class => "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-700 focus:border-green-700 block p-2.5 w-full" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :name, :class => "block mb-2 text-sm font-medium text-black-900" %>
+    <%= form.text_field :name, :class => "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-700 focus:border-green-700 block p-2.5 w-full" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :job, :class => "block mb-2 text-sm font-medium text-black-900" %>
+    <%= form.text_field :job, :class => "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-700 focus:border-green-700 block p-2.5 w-full" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :salary, :class => "block mb-2 text-sm font-medium text-black-900" %>
+    <%= form.text_field :salary, :class => "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-700 focus:border-green-700 block p-2.5 w-full" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :employment_status, :class => "block mb-2 text-sm font-medium text-black-900" %>
+    <%= form.select :employment_status, [["Full-time", 0],["Contracted", 1]], {}, {:class => "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-700 focus:border-green-700 block p-2.5 w-full"} %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :team_id, :class => "block mb-2 text-sm font-medium text-black-900" %>
+    <%= form.collection_select :team_id, Team.all, :id, :name, {:prompt=>true}, {:class=>"border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-700 focus:border-green-700 block p-2.5 w-full"} %>
+  </div>
+
+  <div>
+    <%= form.submit :class => "text-white bg-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" %>
+  </div>
+<% end %>
+</div>
