@@ -1,0 +1,30 @@
+<tr class="hover:bg-gray-100" id="<%= dom_id team %>">
+  <td class="py-4 px-6 text-sm font-medium text-green-900 whitespace-nowrap">
+    <%= team.id %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= team.name %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= team.description %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= team.division.nil? ? "-" : team.division.name %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= team.team_lead.nil? ? "-" : team.team_lead.name %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= team.employees.length == 0 ? "-" : team.employees.pluck(:name).join(', ') %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-center whitespace-nowrap">
+  <%= button_to "Edit", edit_team_path(team), :method => "get", :class => "pr-4 text-green-900" %>
+  <%= button_to "Delete", team, method: :delete, :class => "pl-1 text-red-900" %>
+  </td>
+</tr>

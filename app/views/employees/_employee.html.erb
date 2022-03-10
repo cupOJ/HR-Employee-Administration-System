@@ -1,0 +1,34 @@
+<tr class="hover:bg-gray-100" id="<%= dom_id employee %>">
+  <td class="py-4 px-6 text-sm font-medium text-green-900 whitespace-nowrap">
+    <%= employee.id %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= employee.email %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= employee.name %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= employee.job %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= employee.salary %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= employee.employment_status == 0 ? "Full-time" : "Contracted" %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+    <%= employee.team.nil? ? "-" : employee.team.name %>
+  </td>
+
+  <td class="py-4 px-6 text-sm font-medium text-center whitespace-nowrap">
+  <%= button_to "Edit", edit_employee_path(employee), :method => "get", :class => "pr-4 text-green-900" %>
+  <%= button_to "Delete", employee, method: :delete, :class => "pl-1 text-red-900" %>
+  </td>
+</tr>
