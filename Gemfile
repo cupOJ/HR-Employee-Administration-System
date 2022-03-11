@@ -1,7 +1,13 @@
+## TODO: Remove railsadmin dependencies
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.0"
+
+gem 'devise'
+
+gem 'rails_admin', ['>= 3.0.0.beta2', '< 4']
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.1"
@@ -70,3 +76,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+gem "sassc-rails"
+
+gem "tailwindcss-rails", "~> 2.0"
