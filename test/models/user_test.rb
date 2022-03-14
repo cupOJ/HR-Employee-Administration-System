@@ -1,7 +1,8 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  it 'can save a user' do
+    user = User.new(name: "test")
+    assert user.save
+  end
 end

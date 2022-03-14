@@ -1,7 +1,8 @@
 require "test_helper"
 
 class EmployeeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  it 'can save a employee' do
+    employee = Employee.new(name: "test")
+    assert employee.save
+  end
 end

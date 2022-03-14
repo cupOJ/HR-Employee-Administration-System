@@ -1,7 +1,8 @@
 require "test_helper"
 
 class TargetTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  it 'can save a target' do
+    target = Target.new(name: "test")
+    assert target.save
+  end
 end

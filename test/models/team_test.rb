@@ -1,7 +1,8 @@
 require "test_helper"
 
 class TeamTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  it 'can save a team' do
+    team = Team.new(name: "test")
+    assert team.save
+  end
 end
